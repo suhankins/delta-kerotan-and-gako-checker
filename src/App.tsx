@@ -19,9 +19,9 @@ function App() {
         ICollectableCollection | null | string
     >(null);
 
-    const onChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const onChange = async (file: File) => {
         console.log('Reading uploaded file...');
-        const buffer = await e.target.files?.item(0)?.arrayBuffer();
+        const buffer = await file.arrayBuffer();
         if (buffer === undefined) {
             setCollection('No file provided.');
             return;
@@ -63,18 +63,24 @@ function App() {
             </h1>
             <div className="component">
                 <p>
-                    Check which Kerotans and GA-KOs you missed in Metal Gear
-                    Solid
-                    <span className="delta">
-                        Δ
-                    </span>
-                    : Snake Eater.
+                    Check which Kerotans and GA-KOs have you missed in Metal
+                    Gear Solid
+                    <span className="delta">Δ</span>: Snake Eater.
                 </p>
-                <details>
+                <details open={!collection}>
                     <summary>Instructions</summary>
                     <ol>
                         <li>
-                            Go to <code>%LOCALAPPDATA%\MGSDelta\Saved\SaveGames\</code>
+                            Type{' '}
+                            <code>
+                                %LOCALAPPDATA%\MGSDelta\Saved\SaveGames\
+                            </code>{' '}
+                            in address bar in explorer and press Enter
+                        </li>
+                        <li>Go to a folder named with random numbers</li>
+                        <li>
+                            Find <code>UserProfile_0.sav</code> and upload it
+                            here
                         </li>
                     </ol>
                 </details>

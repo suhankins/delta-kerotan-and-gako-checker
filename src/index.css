@@ -117,3 +117,12 @@ body {
     user-select: none;
     -webkit-user-select: none;
 }
+
+details {
+    background-color: #10100888;
+    padding: 0.4rem;
+}
+
+code {
+    color: #599594;
+}

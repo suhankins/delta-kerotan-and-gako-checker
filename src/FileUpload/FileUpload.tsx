@@ -1,4 +1,4 @@
-import type { ChangeEventHandler } from 'react';
+import { useDropzone } from 'react-dropzone';
 import styles from './FileUpload.module.css';
 import classNames from 'classnames';
 import { UploadIcon } from './UploadIcon';
@@ -6,17 +6,33 @@ import { UploadIcon } from './UploadIcon';
 export const FileUpload = ({
     onChange,
 }: {
-    onChange: ChangeEventHandler<HTMLInputElement>;
+    onChange: (file: File) => void;
 }) => {
+    const onDrop = (acceptedFiles: File[]) => {
+        const file = acceptedFiles[0];
+        if (file) onChange(file);
+    };
+
+    const { getRootProps, getInputProps, isDragActive } = useDropzone({
+        noClick: true,
+        onDrop,
+    });
+
     return (
-        <label className={classNames('component interactive', styles.container)} tabIndex={0}>
+        <label
+            className={classNames('component interactive', styles.container)}
+            {...getRootProps()}>
             <UploadIcon className="icon" />
-            <span>Upload your UserSettings_0.sav</span>
+            <span>
+                {isDragActive
+                    ? 'Drop your save file here'
+                    : 'Drag and drop, or select your UserProfile_0.sav'}
+            </span>
             <input
                 className={styles.input}
                 type="file"
+                {...getInputProps()}
                 accept=".sav"
-                onInput={onChange}
             />
         </label>
     );
