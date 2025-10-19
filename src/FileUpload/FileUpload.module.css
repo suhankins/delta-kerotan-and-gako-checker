@@ -4,7 +4,7 @@
 
 .container {
     text-align: center;
-    flex-direction: column;
+    flex-direction: column !important;
     place-items: center;
     margin-bottom: 2rem;
     margin-top: 2rem;
