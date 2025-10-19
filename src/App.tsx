@@ -61,7 +61,7 @@ function App() {
     return (
         <>
             <h1 className="logo">
-                Kerotan and <span className="nowrap">GA-KO</span> checker{' '}
+                Kerotan and <span className="nowrap">GA-KO</span> Checker{' '}
                 <span className="delta">Δ</span>
             </h1>
             <div className="component">
