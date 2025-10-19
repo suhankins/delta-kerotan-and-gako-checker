@@ -1,4 +1,3 @@
-import classNames from 'classnames';
 import styles from './CopyableText.module.css';
 import { useState } from 'react';
 
@@ -13,9 +12,8 @@ export const CopyableText = ({ children }: { children: string }) => {
 
     return (
         <span
-            className={classNames(styles.container, {
-                [styles.copied]: copied,
-            })}
+            className={styles.container}
+            data-tooltip={copied && 'Copied!'}
             onClick={onClick}>
             {children}
         </span>

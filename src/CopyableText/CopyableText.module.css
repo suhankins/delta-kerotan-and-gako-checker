@@ -1,16 +1,3 @@
 .container {
     position: relative;
 }
-
-.copied:before {
-    content: 'Copied!';
-    position: absolute;
-    left: 50%;
-    translate: -50%;
-    background-color: #101008;
-    color: #bdbda0;
-    font-family: 'Open Sans', system-ui, Helvetica, Arial, sans-serif;
-    font-size: 0.8rem;
-    padding: 0.3rem;
-    top: -2rem;
-}
