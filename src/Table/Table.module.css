@@ -1,0 +1,91 @@
+.table {
+    width: 100%;
+    border-spacing: 0.4rem;
+}
+
+.table th, .table td {
+    background-color: #5c5a4bcc;
+    padding: 0;
+    position: relative;
+    border-color: #81826ecc;
+    border-width: 1px;
+    border-top-style: solid;
+    border-bottom-style: solid;
+}
+
+.table th:first-child, .table td:first-child {
+    border-left-style: solid;
+}
+
+.table th:last-child, .table td:last-child {
+    border-right-style: solid;
+}
+
+.table td:last-child {
+    width: 5.4rem;
+    padding-right: 0.4rem;
+}
+
+.location {
+    height: 10rem;
+    background-position: center;
+    background-size: cover;
+    vertical-align: top;
+}
+
+.locationName {
+    margin: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+    background-color: #101008;
+}
+
+.iconColumn {
+    width: 5rem;
+}
+
+.iconColumn::before {
+    content: '';
+    position: absolute;
+    left: -0.4rem;
+    height: calc(100% + 2px);
+    width: 0.4rem;
+    top: -1px;
+    background-color: #5c5a4bcc;
+    border-color: #81826ecc;
+    border-width: 1px;
+    border-top-style: solid;
+    border-bottom-style: solid;
+}
+
+.iconContainer {
+    position: relative;
+    display: flex;
+    place-content: center;
+}
+
+.iconCollected:before {
+    content: '';
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    background-image: url('/icons/checkmark.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    top: -1.75rem;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.iconCollected:hover:before {
+    opacity: 1;
+}
+
+.mission {
+    height: 3rem;
+    font-size: 1.2rem;
+    letter-spacing: 0.2ch;
+}
