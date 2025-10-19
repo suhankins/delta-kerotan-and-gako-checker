@@ -7,6 +7,10 @@ export type ILocation = {
     pictureVariation?: string;
     confirmed?: boolean;
     index: number;
+    /**
+     * Rarely, gako indexes and kerotan indexes refer to separate levels
+     */
+    kerotanIndex?: number;
     mission: string;
 };
 
@@ -41,12 +45,18 @@ export const LOCATIONS: ILocation[] = [
         mission: 'Virtuous Mission',
         index: 4,
     },
-    { name: 'Dremuchij East', mission: 'Operation Snake Eater', index: 5 },
+    {
+        name: 'Dremuchij East',
+        mission: 'Operation Snake Eater',
+        index: 5,
+        kerotanIndex: 6,
+    },
     {
         name: 'Dremuchij North',
         pictureVariation: 'night',
         mission: 'Operation Snake Eater',
         index: 6,
+        kerotanIndex: 8,
     },
     {
         name: 'Dremuchij Swampland',
@@ -59,6 +69,7 @@ export const LOCATIONS: ILocation[] = [
         pictureVariation: 'night',
         mission: 'Operation Snake Eater',
         index: 8,
+        kerotanIndex: 5,
     },
     {
         name: 'Dolinovodno',
@@ -72,13 +83,21 @@ export const LOCATIONS: ILocation[] = [
         mission: 'Operation Snake Eater',
         index: 10,
     },
-    { name: 'Chyornyj Prud', mission: 'Operation Snake Eater', index: 11 },
+    {
+        name: 'Chyornyj Prud',
+        mission: 'Operation Snake Eater',
+        index: 11,
+    },
     {
         name: 'Bolshaya Past South',
         mission: 'Operation Snake Eater',
         index: 12,
     },
-    { name: 'Bolshaya Past Base', mission: 'Operation Snake Eater', index: 13 },
+    {
+        name: 'Bolshaya Past Base',
+        mission: 'Operation Snake Eater',
+        index: 13,
+    },
     {
         name: 'Bolshaya Past Crevice',
         mission: 'Operation Snake Eater',
@@ -99,8 +118,16 @@ export const LOCATIONS: ILocation[] = [
         mission: 'Operation Snake Eater',
         index: 17,
     },
-    { name: 'Ponizovje South', mission: 'Operation Snake Eater', index: 18 },
-    { name: 'Ponizovje West', mission: 'Operation Snake Eater', index: 19 },
+    {
+        name: 'Ponizovje South',
+        mission: 'Operation Snake Eater',
+        index: 18,
+    },
+    {
+        name: 'Ponizovje West',
+        mission: 'Operation Snake Eater',
+        index: 19,
+    },
     {
         name: 'Ponizovje Warehouse Docks',
         mission: 'Operation Snake Eater',
@@ -115,39 +142,74 @@ export const LOCATIONS: ILocation[] = [
         name: 'Graniny Gorki South',
         mission: 'Operation Snake Eater',
         index: 22,
+        kerotanIndex: 23, // kerotans skipped 22
     },
     {
         name: 'Graniny Gorki Exterior: Outside Walls',
         mission: 'Operation Snake Eater',
         index: 23,
+        kerotanIndex: 24,
     },
     {
         name: 'Graniny Gorki Exterior: Inside Walls',
         mission: 'Operation Snake Eater',
         index: 24,
+        kerotanIndex: 25,
     },
     {
         name: 'Graniny Gorki Lab F1',
         mission: 'Operation Snake Eater',
         index: 25,
+        kerotanIndex: 26,
     },
     {
         name: 'Graniny Gorki Lab B1 East',
         mission: 'Operation Snake Eater',
         index: 26,
+        kerotanIndex: 27,
     },
     {
         name: 'Graniny Gorki Lab B1 West',
         mission: 'Operation Snake Eater',
         index: 27,
+        kerotanIndex: 28,
     },
-    { name: 'Svyatogornyj South', mission: 'Operation Snake Eater', index: 28 },
-    { name: 'Svyatogornyj West', mission: 'Operation Snake Eater', index: 29 },
-    { name: 'Svyatogornyj East', mission: 'Operation Snake Eater', index: 30 },
-    { name: 'Sokrovenno South', mission: 'Operation Snake Eater', index: 31 },
-    { name: 'Sokrovenno North', mission: 'Operation Snake Eater', index: 32 },
-    { name: 'Sokrovenno West', mission: 'Operation Snake Eater', index: 33 },
-    { name: 'Krasnogorje Tunnel', mission: 'Operation Snake Eater', index: 34 },
+    {
+        name: 'Svyatogornyj South',
+        mission: 'Operation Snake Eater',
+        index: 28,
+        kerotanIndex: 22,
+    },
+    {
+        name: 'Svyatogornyj West',
+        mission: 'Operation Snake Eater',
+        index: 29,
+    },
+    {
+        name: 'Svyatogornyj East',
+        mission: 'Operation Snake Eater',
+        index: 30,
+    },
+    {
+        name: 'Sokrovenno South',
+        mission: 'Operation Snake Eater',
+        index: 31,
+    },
+    {
+        name: 'Sokrovenno West',
+        mission: 'Operation Snake Eater',
+        index: 32,
+    },
+    {
+        name: 'Sokrovenno North',
+        mission: 'Operation Snake Eater',
+        index: 33,
+    },
+    {
+        name: 'Krasnogorje Tunnel',
+        mission: 'Operation Snake Eater',
+        index: 34,
+    },
     {
         name: 'Krasnogorje Mountain Base',
         mission: 'Operation Snake Eater',
@@ -166,16 +228,15 @@ export const LOCATIONS: ILocation[] = [
     {
         name: 'Krasnogorje Mountaintop: Behind Ruins',
         mission: 'Operation Snake Eater',
-        index: 38,
+        index: 39, // In indexing these go in the opposite order, but in gameplay they go in this one
     },
     {
         name: 'Krasnogorje Mountaintop Ruins',
         mission: 'Operation Snake Eater',
-        index: 39,
+        index: 38,
     },
     {
         name: 'Groznyj Grad Underground Tunnel',
-        confirmed: true,
         mission: 'Operation Snake Eater',
         index: 40,
     },
@@ -193,36 +254,58 @@ export const LOCATIONS: ILocation[] = [
         name: 'Groznyj Grad Southeast',
         mission: 'Operation Snake Eater',
         index: 43,
+        kerotanIndex: 44,
     },
-    { name: 'Groznyj Grad Jail', mission: 'Operation Snake Eater', index: 44 },
+    {
+        name: 'Groznyj Grad Jail',
+        mission: 'Operation Snake Eater',
+        index: 47,
+    },
     {
         name: 'Groznyj Grad Northeast',
         mission: 'Operation Snake Eater',
-        index: 45,
+        index: 44,
+        kerotanIndex: 43,
     },
     {
         name: 'Groznyj Grad Weapons Lab: East Wing',
         mission: 'Operation Snake Eater',
-        index: 46,
+        index: 45,
     },
     {
         name: 'Groznyj Grad Weapons Lab: West Wing Corridor',
         mission: 'Operation Snake Eater',
-        index: 47,
+        index: 46,
     },
-    { name: 'Tikhogornyj', mission: 'Operation Snake Eater', index: 48 },
+    {
+        name: 'Tikhogornyj',
+        mission: 'Operation Snake Eater',
+        index: 48,
+        kerotanIndex: 50,
+    },
     {
         name: 'Tikhogornyj: Behind Waterfall',
         mission: 'Operation Snake Eater',
         index: 49,
+        kerotanIndex: 51,
     },
     {
         name: 'Groznyj Grad Weapons Lab: Main Wing Hangar',
         mission: 'Operation Snake Eater',
         index: 50,
+        kerotanIndex: 48,
     },
-    { name: 'Groznyj Grad B1F', mission: 'Operation Snake Eater', index: 51 },
-    { name: 'Groznyj Grad', mission: 'Operation Snake Eater', index: 52 },
+    {
+        name: 'Groznyj Grad B1F',
+        mission: 'Operation Snake Eater',
+        index: 51,
+        kerotanIndex: 49,
+    },
+    {
+        name: 'Groznyj Grad',
+        mission: 'Operation Snake Eater',
+        index: 52,
+    },
     {
         name: 'Groznyj Grad Runway South',
         mission: 'Operation Snake Eater',
@@ -253,7 +336,11 @@ export const LOCATIONS: ILocation[] = [
         mission: 'Operation Snake Eater',
         index: 58,
     },
-    { name: 'Lazorevo South', mission: 'Operation Snake Eater', index: 59 },
+    {
+        name: 'Lazorevo South',
+        mission: 'Operation Snake Eater',
+        index: 59,
+    },
     { name: 'Lazorevo North', mission: 'Operation Snake Eater', index: 60 },
     { name: 'Zaozyorje West', mission: 'Operation Snake Eater', index: 61 },
     { name: 'Zaozyorje East', mission: 'Operation Snake Eater', index: 62 },

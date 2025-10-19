@@ -96,7 +96,7 @@ export const Table = ({
     const locations = showAll
         ? LOCATIONS
         : LOCATIONS.filter(
-              ({ index }) => !kerotansArray[index] || !gakosArray[index]
+              (location) => !kerotansArray[location.kerotanIndex ?? location.index] || !gakosArray[location.index]
           );
 
     return (
@@ -115,7 +115,7 @@ export const Table = ({
                                 kerotansArray[location.index]
                             } ${gakosArray[location.index]}`}
                             location={location}
-                            kerotanState={kerotansArray[location.index]}
+                            kerotanState={kerotansArray[location.kerotanIndex ?? location.index]}
                             gakoState={gakosArray[location.index]}
                             showMissionTitle={
                                 array[arrayIndex - 1]?.mission !==
