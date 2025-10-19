@@ -75,12 +75,31 @@ function App() {
             {typeof collection === 'string' && (
                 <p className="component">Error: {collection}</p>
             )}
-            {collection && typeof collection !== 'string' && (
+            {collection && typeof collection !== 'string' ? (
                 <Table
                     kerotansArray={collection.kerotansArray}
                     gakosArray={collection.gakosArray}
                 />
+            ) : (
+                <img src="/example.png" alt="" className="example" />
             )}
+            <footer className="component">
+                <p>
+                    This website is not affiliated with Konami. All images used
+                    on this website are owned by Konami.
+                </p>
+                <p>
+                    This website does not collect any data or use any cookies.
+                    All data you upload is processed on your device only.
+                </p>
+                <p>
+                    By Punished Bernadetta. Contribute on{' '}
+                    <a href="https://github.com/suhankins/delta-kerotan-and-gako-checker">
+                        GitHub
+                    </a>
+                    .
+                </p>
+            </footer>
         </>
     );
 }

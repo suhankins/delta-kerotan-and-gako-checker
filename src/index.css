@@ -121,6 +121,7 @@ body {
 details {
     background-color: #10100888;
     padding: 0.4rem;
+    margin-top: 1rem;
 }
 
 code {
@@ -138,4 +139,29 @@ code {
     font-size: 0.8rem;
     padding: 0.3rem;
     top: -2rem;
+}
+
+.example {
+    max-width: 100%;
+    opacity: 0.5;
+}
+
+a {
+    color: #599594;
+}
+
+a:visited {
+    color: #599594;
+}
+
+a:hover {
+    text-shadow: #72bdbb88 0px 0px 5px;
+}
+
+p {
+    margin: 0;
+}
+
+footer {
+    text-align: center;
 }
