@@ -56,7 +56,8 @@ function App() {
     return (
         <>
             <h1 className="logo">
-                Kerotan and <span className='nowrap'>GA-KO</span> checker <span className="delta">Δ</span>
+                Kerotan and <span className="nowrap">GA-KO</span> checker{' '}
+                <span className="delta">Δ</span>
             </h1>
             <p>
                 Check which Kerotans and GA-KOs you missed in MGS

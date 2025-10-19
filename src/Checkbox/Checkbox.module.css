@@ -11,7 +11,13 @@
     padding: 0.6rem 1.2ch;
     font-family: inherit;
     font-weight: 600;
-    transition: color 0.1s;
+    transition: color 0.2s;
+
+    &.disabled {
+        background-color: #2a2922cc;
+        border-color: #56564dcc;
+        color: #5e5e4f;
+    }
 }
 
 .container:before {
@@ -22,10 +28,10 @@
     bottom: 0;
     width: 0%;
     background-color: #e9e9c9;
-    transition: width 0.1s;
+    transition: width 0.2s ease-in-out;
 }
 
-.container:hover {
+.container:hover:not(.disabled) {
     color: #252619;
 
     &:before {
