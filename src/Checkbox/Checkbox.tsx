@@ -14,7 +14,7 @@ export const Checkbox = ({
     disabled: boolean;
 }) => (
     <label
-        className={classNames('component', {
+        className={classNames('component interactive', {
             disabled,
         })}>
         <span>{children}</span>

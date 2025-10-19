@@ -9,7 +9,7 @@ export const FileUpload = ({
     onChange: ChangeEventHandler<HTMLInputElement>;
 }) => {
     return (
-        <label className={classNames('component', styles.container)} tabIndex={0}>
+        <label className={classNames('component interactive', styles.container)} tabIndex={0}>
             <UploadIcon className="icon" />
             <span>Upload your UserSettings_0.sav</span>
             <input

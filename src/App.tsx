@@ -20,7 +20,7 @@ function App() {
     >(null);
 
     const onChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
-        console.log("Reading uploaded file...");
+        console.log('Reading uploaded file...');
         const buffer = await e.target.files?.item(0)?.arrayBuffer();
         if (buffer === undefined) {
             setCollection('No file provided.');
@@ -61,12 +61,28 @@ function App() {
                 Kerotan and <span className="nowrap">GA-KO</span> checker{' '}
                 <span className="delta">Δ</span>
             </h1>
-            <p>
-                Check which Kerotans and GA-KOs you missed in MGS
-                <span className="delta">Δ</span>
-            </p>
+            <div className="component">
+                <p>
+                    Check which Kerotans and GA-KOs you missed in Metal Gear
+                    Solid
+                    <span className="delta">
+                        Δ
+                    </span>
+                    : Snake Eater.
+                </p>
+                <details>
+                    <summary>Instructions</summary>
+                    <ol>
+                        <li>
+                            Go to <code>%LOCALAPPDATA%\MGSDelta\Saved\SaveGames\</code>
+                        </li>
+                    </ol>
+                </details>
+            </div>
             <FileUpload onChange={onChange} />
-            {typeof collection === 'string' && <p>Error: {collection}</p>}
+            {typeof collection === 'string' && (
+                <p className="component">Error: {collection}</p>
+            )}
             {collection && typeof collection !== 'string' && (
                 <Table
                     kerotansArray={collection.kerotansArray}
