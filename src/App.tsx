@@ -1,11 +1,9 @@
-import { useState } from 'react';
-import { SIGNATURE } from './utils/consts';
+import { useRef, useState } from 'react';
+import { GAKO_LIST_NAME, KEROTAN_LIST_NAME, SIGNATURE } from './utils/consts';
 import { findArrayByNameInBuffer } from './utils/findArrayByNameInBuffer';
 import { Table } from './Table/Table';
 import { FileUpload } from './FileUpload/FileUpload';
-
-const KEROTAN_LIST_NAME = 'KerotanList';
-const GAKO_LIST_NAME = 'GakoList';
+import { Instructions } from './Instructions/Instructions';
 
 const textDecoder = new TextDecoder();
 
@@ -15,6 +13,8 @@ interface ICollectableCollection {
 }
 
 function App() {
+    const instructionsRef = useRef<HTMLDetailsElement>(null);
+
     const [collection, setCollection] = useState<
         ICollectableCollection | null | string
     >(null);
@@ -49,6 +49,9 @@ function App() {
             return;
         }
 
+        const instructionsCurrent = instructionsRef?.current;
+        if (instructionsCurrent) instructionsCurrent.open = false;
+
         setCollection({
             kerotansArray,
             gakosArray,
@@ -64,26 +67,9 @@ function App() {
             <div className="component">
                 <p>
                     Check which Kerotans and GA-KOs have you missed in Metal
-                    Gear Solid
-                    <span className="delta">Δ</span>: Snake Eater.
+                    Gear Solid <span className="delta">Δ</span>: Snake Eater.
                 </p>
-                <details open={!collection}>
-                    <summary>Instructions</summary>
-                    <ol>
-                        <li>
-                            Type{' '}
-                            <code>
-                                %LOCALAPPDATA%\MGSDelta\Saved\SaveGames\
-                            </code>{' '}
-                            in address bar in explorer and press Enter
-                        </li>
-                        <li>Go to a folder named with random numbers</li>
-                        <li>
-                            Find <code>UserProfile_0.sav</code> and upload it
-                            here
-                        </li>
-                    </ol>
-                </details>
+                <Instructions ref={instructionsRef} />
             </div>
             <FileUpload onChange={onChange} />
             {typeof collection === 'string' && (
