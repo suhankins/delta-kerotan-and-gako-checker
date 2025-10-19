@@ -25,5 +25,5 @@ export const findArrayByNameInBuffer = (buffer: ArrayBuffer, text: string) => {
         pointer++;
     }
 
-    return 'No data found. Are you sure you uploaded UserProfile_X.sav?';
+    return 'No data found. Are you sure you uploaded UserProfile_0.sav?';
 };

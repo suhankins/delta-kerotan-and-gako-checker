@@ -14,10 +14,10 @@ export const Checkbox = ({
     disabled: boolean;
 }) => (
     <label
-        className={classNames(styles.container, {
-            [styles.disabled]: disabled,
+        className={classNames('component', {
+            disabled,
         })}>
-        <span className={styles.label}>{children}</span>
+        <span>{children}</span>
         <input
             disabled={disabled}
             className={styles.input}

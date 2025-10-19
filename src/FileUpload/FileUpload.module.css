@@ -1,0 +1,10 @@
+.input {
+    display: none;
+}
+
+.container {
+    text-align: center;
+    flex-direction: column;
+    place-items: center;
+    margin-bottom: 2rem;
+}

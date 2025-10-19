@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { SIGNATURE } from './utils/consts';
 import { findArrayByNameInBuffer } from './utils/findArrayByNameInBuffer';
 import { Table } from './Table/Table';
+import { FileUpload } from './FileUpload/FileUpload';
 
 const KEROTAN_LIST_NAME = 'KerotanList';
 const GAKO_LIST_NAME = 'GakoList';
@@ -19,6 +20,7 @@ function App() {
     >(null);
 
     const onChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+        console.log("Reading uploaded file...");
         const buffer = await e.target.files?.item(0)?.arrayBuffer();
         if (buffer === undefined) {
             setCollection('No file provided.');
@@ -63,7 +65,7 @@ function App() {
                 Check which Kerotans and GA-KOs you missed in MGS
                 <span className="delta">Δ</span>
             </p>
-            <input type="file" accept=".sav" onChange={onChange} />
+            <FileUpload onChange={onChange} />
             {typeof collection === 'string' && <p>Error: {collection}</p>}
             {collection && typeof collection !== 'string' && (
                 <Table
