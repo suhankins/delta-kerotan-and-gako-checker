@@ -1,4 +1,4 @@
-# Kerotan and GA-KO checker <span style="color: #009600;">Δ</span>
+# Kerotan and GA-KO Checker <span style="color: #009600;">Δ</span>
 
 A website where you can upload your Metal Gear Solid Delta: Snake Eater save file and see which Kerotans and GA-KO have you missed.
 
