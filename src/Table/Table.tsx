@@ -57,7 +57,7 @@ const Row = ({
                     style={{
                         backgroundImage: `url("/previews/${getPreviewImageName(
                             location
-                        )}.png")`,
+                        )}.webp")`,
                     }}
                     className={styles.location}>
                     <p className={styles.locationName}>{location.name}</p>

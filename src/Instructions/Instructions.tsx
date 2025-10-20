@@ -16,7 +16,7 @@ export const Instructions = forwardRef((_, ref: Ref<HTMLDetailsElement>) => (
                 in address bar in explorer and press Enter
                 <img
                     className={styles.image}
-                    src="/instructions/instruction_0.png"
+                    src="/instructions/instruction_0.webp"
                     alt=""
                 />
             </li>
@@ -24,7 +24,7 @@ export const Instructions = forwardRef((_, ref: Ref<HTMLDetailsElement>) => (
                 Go to a folder named with random numbers
                 <img
                     className={styles.image}
-                    src="/instructions/instruction_1.png"
+                    src="/instructions/instruction_1.webp"
                     alt=""
                 />
             </li>
