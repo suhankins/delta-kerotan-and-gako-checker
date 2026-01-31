@@ -37,6 +37,8 @@ function App() {
         );
         const gakosArray = findArrayByNameInBuffer(buffer, GAKO_LIST_NAME);
 
+        // If either function returned a string instead of array,
+        // it means we got some kind of error.
         if (
             typeof kerotansArray === 'string' ||
             typeof gakosArray === 'string'
